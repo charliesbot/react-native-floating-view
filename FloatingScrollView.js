@@ -82,6 +82,8 @@ FloatingScrollView.propTypes = {
 
 FloatingScrollView.defaultProps = {
   offset: 50,
+  height: 50,
+  bottom: 30,
 };
 
 export default FloatingScrollView;
