@@ -1,0 +1,25 @@
+{
+  "name": "react-native-floating-view",
+  "description": "A classy scrollview that autohides elements",
+  "version": "0.0.1",
+  "author": {
+    "name": "Charlie L",
+    "email": "carlyeah@me.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "video",
+    "audio",
+    "media",
+    "control"
+  ],
+  "main": "FloatingScrollView.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:charliesbox/react-native-media-controls.git"
+  }
+}
+
