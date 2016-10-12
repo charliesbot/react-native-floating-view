@@ -19,7 +19,7 @@
   "main": "FloatingScrollView.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:charliesbox/react-native-media-controls.git"
+    "url": "git@github.com:charliesbox/react-native-floating-view.git"
   }
 }
 
