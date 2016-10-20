@@ -11,10 +11,9 @@
     "react-native",
     "ios",
     "android",
-    "video",
-    "audio",
-    "media",
-    "control"
+    "floating",
+    "view",
+    "material"
   ],
   "main": "FloatingScrollView.js",
   "repository": {
