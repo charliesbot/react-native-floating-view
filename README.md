@@ -3,10 +3,10 @@ An easy way to add a view that autohides while scrolling
 
 ![mediac](https://media.giphy.com/media/26hiszmXkypwjVFrG/giphy.gif)
 
-##Installation
+## Installation
 `npm i react-native-floating-view --save`
 
-##Usage##
+## Usage
 ```js
 // Require the module
 import FloatingScrollView from 'react-native-floating-view';
@@ -27,7 +27,7 @@ import FloatingScrollView from 'react-native-floating-view';
   }
 
 ```
-##Props##
+## Props
 | Prop         | Type     | Optional | Default                | Description                                                          |
 |--------------|----------|----------|------------------------|----------------------------------------------------------------------|
 | childrenStyles      | style     | Yes      |                        | Override the styles of the animated view container                         |
@@ -35,5 +35,5 @@ import FloatingScrollView from 'react-native-floating-view';
 | height    | number     | Yes      |                   | Height of the floating view                                       |
 | floatingView    | node     | No      |                   | The view you want to autohide                                       |
 
-##Example##
+## Example
 Refer to the example folder to find an implementation of this project
