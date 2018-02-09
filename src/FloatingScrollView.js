@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from 'react';
-// eslint ignore next $FlowFixMe
 import { StyleSheet, ScrollView, Animated, View, Easing } from 'react-native';
 import type { Props, ScrollEvent } from './FloatingScrollView.type';
 
@@ -59,7 +58,7 @@ class FloatingScrollView extends Component<Props> {
     Animated.timing(this.animatedValue, {
       toValue: position,
       duration: 200,
-      easing: Easing.in,
+      easing: Easing.in(Easing.quad),
     }).start(() => {
       this.isAnimating = false;
       this.scrollPoint = newPoint;
@@ -69,12 +68,7 @@ class FloatingScrollView extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
-          ref="_scrollView"
-          scrollEventThrottle={16}
-          onScroll={this.onScroll}
-          style={styles.scrollView}
-        >
+        <ScrollView scrollEventThrottle={16} onScroll={this.onScroll}>
           {this.props.children}
         </ScrollView>
         <Animated.View
