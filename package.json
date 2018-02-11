@@ -1,12 +1,12 @@
 {
   "name": "react-native-floating-view",
   "description": "A classy scrollview that autohides elements",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": {
     "name": "Charlie L",
-    "email": "carlyeah@me.com"
+    "email": "charliesbot@gmail.com"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "keywords": [
     "react-native",
     "ios",
@@ -15,9 +15,41 @@
     "view",
     "material"
   ],
-  "main": "FloatingScrollView.js",
+  "scripts": {
+    "flow": "flow check ./",
+    "format": "eslint ./**/*.js --fix",
+    "lint": "eslint ./",
+    "lint-staged": "lint-staged",
+    "precommit": "lint-staged",
+    "prepublish": "yarn lint",
+    "test": "yarn lint"
+  },
+  "main": "src/FloatingScrollView.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:charliesbox/react-native-floating-view.git"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.1.2",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react-native": "^4.0.0",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-flowtype": "^2.43.0",
+    "eslint-plugin-flowtype-errors": "^3.3.7",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.4.0",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-react-native": "^3.2.0",
+    "flow-bin": "^0.65.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   }
 }

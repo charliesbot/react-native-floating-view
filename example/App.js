@@ -1,43 +1,42 @@
-import React, {Component} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity
-} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import FloatingScrollView from 'react-native-floating-view';
 
-const range = (start, end) => (
-  Array.from({length: end - start + 1}, (x, i) => i + start)
-);
-const arr = range(0, 50);
+const range = (start, end) =>
+  Array.from({ length: end - start + 1 }, (x, i) => i + start);
+const arr = range(0, 200);
 
 class Main extends Component {
-  constructor(props){
+  scrollView;
+
+  constructor(props) {
     super(props);
-    this.getFloatingButton = this.getFloatingButton.bind(this);
   }
 
-  getFloatingButton() {
+  getFloatingButton = () => {
     return (
       <TouchableOpacity
-        onPress={() => { this.refs._scrollView.refs._scrollView.scrollTo({y:0}) }}
-        style={styles.fab}>
-      </TouchableOpacity>
-    )
-  }
+        onPress={() => {
+          this.scrollView.innerScrollView.scrollTo({ y: 0 });
+        }}
+        style={styles.fab}
+      />
+    );
+  };
 
   render() {
     return (
       <FloatingScrollView
-        ref='_scrollView'
+        ref={scrollView => {
+          this.scrollView = scrollView;
+        }}
         childrenStyles={styles.containerStyles}
         bottom={30}
         height={54}
         offset={50}
         floatingView={this.getFloatingButton()}
       >
-        {arr.map((el) => {
+        {arr.map(el => {
           return (
             <View key={el}>
               <Text>Test</Text>
@@ -58,7 +57,7 @@ const styles = StyleSheet.create({
   },
   containerStyles: {
     right: 30,
-  }
+  },
 });
 
 export default Main;

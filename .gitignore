@@ -33,6 +33,7 @@ example/android/build
 
 # node.js
 #
+node_modules
 example/node_modules/
 example/npm-debug.log
 
@@ -44,3 +45,4 @@ example/android/keystores/debug.keystore
 example/android/gradlew
 example/android/gradlew.bat
 
+/lib
