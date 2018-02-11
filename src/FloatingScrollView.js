@@ -1,7 +1,8 @@
 // @flow
 
-import React, { Component } from 'react';
-import { StyleSheet, ScrollView, Animated, View, Easing } from 'react-native';
+import React, { Component, type Node } from 'react';
+// eslint ignore next $FlowFixMe
+import { StyleSheet, Animated, ScrollView, View, Easing } from 'react-native';
 import type { Props, ScrollEvent } from './FloatingScrollView.type';
 
 const styles = StyleSheet.create({
@@ -18,8 +19,10 @@ class FloatingScrollView extends Component<Props> {
   isAnimating: boolean;
   scrollPoint: number;
   animatedValue: Animated.Value;
+  innerScrollView: Node;
 
   static defaultProps = {
+    onScroll: () => {},
     offset: 50,
     height: 50,
     bottom: 30,
@@ -36,6 +39,8 @@ class FloatingScrollView extends Component<Props> {
   }
 
   onScroll = (event: ScrollEvent) => {
+    this.props.onScroll(event);
+
     const offsetY = event.nativeEvent.contentOffset.y;
 
     if (offsetY < 0 || this.isAnimating) {
@@ -66,19 +71,27 @@ class FloatingScrollView extends Component<Props> {
   }
 
   render() {
+    const { childrenStyles, floatingView, children } = this.props;
     return (
       <View style={styles.container}>
-        <ScrollView scrollEventThrottle={16} onScroll={this.onScroll}>
-          {this.props.children}
+        <ScrollView
+          ref={scrollComponent => {
+            this.innerScrollView = scrollComponent;
+          }}
+          scrollEventThrottle={16}
+          onScroll={this.onScroll}
+          style={styles.scrollView}
+        >
+          {children}
         </ScrollView>
         <Animated.View
           style={[
             styles.animatedView,
-            this.props.childrenStyles,
+            childrenStyles,
             { bottom: this.animatedValue },
           ]}
         >
-          {this.props.floatingView}
+          {floatingView}
         </Animated.View>
       </View>
     );

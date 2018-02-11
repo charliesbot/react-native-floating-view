@@ -1,6 +1,6 @@
 // @flow
 
-import type { Node } from 'react';
+import { type Node } from 'react';
 
 export type Props = {
   bottom: number,
@@ -9,6 +9,7 @@ export type Props = {
   floatingView: Node,
   height: number,
   offset: number,
+  onScroll: Function,
 };
 
 export type ScrollEvent = {
